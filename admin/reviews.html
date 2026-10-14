@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Duyệt đánh giá | AYS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page admin-products-page">
+  <main class="admin-products-shell">
+    <header class="admin-products-header">
+      <a class="admin-brand" href="./index.html" aria-label="Về admin AYS">
+        <span class="brand-mark">AYS</span>
+        <span>AYS · QUẢN TRỊ</span>
+      </a>
+      <div class="admin-header-actions">
+        <a class="admin-signout" href="./orders.html">Quản lý đơn hàng</a>
+        <a class="admin-signout" href="./products.html">Quản lý sản phẩm</a>
+        <a class="admin-signout" href="./customers.html">Khách hàng</a>
+        <a class="admin-signout" href="./gacha.html">Gacha Garden</a>
+        <a class="admin-signout" href="../index.html">Xem cửa hàng</a>
+        <button id="reviews-signout" class="admin-signout" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <section class="admin-review-panel" aria-labelledby="reviews-heading">
+      <div class="admin-list-heading">
+        <div>
+          <p class="eyebrow">AYS Admin</p>
+          <h1 id="reviews-heading">Duyệt đánh giá</h1>
+        </div>
+        <button id="reload-reviews" class="admin-signout" type="button">Tải lại</button>
+      </div>
+      <p id="reviews-admin-message" class="admin-message" role="status" aria-live="polite">Đang tải đánh giá…</p>
+      <nav class="admin-review-views" aria-label="Lọc đánh giá">
+        <button class="admin-signout admin-review-view is-active" type="button" data-review-view="pending" aria-pressed="true">Chờ duyệt</button>
+        <button class="admin-signout admin-review-view" type="button" data-review-view="approved" aria-pressed="false">Đã duyệt</button>
+        <button class="admin-signout admin-review-view" type="button" data-review-view="rejected" aria-pressed="false">Đã từ chối</button>
+      </nav>
+      <div id="admin-review-list" class="admin-review-list"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="reviews.js"></script>
+</body>
+</html>

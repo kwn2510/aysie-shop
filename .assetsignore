@@ -1,0 +1,5 @@
+supabase
+.vscode
+wrangler.jsonc
+.assetsignore
+.gitignore

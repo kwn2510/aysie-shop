@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Khách hàng | AYS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page admin-products-page">
+  <main class="admin-products-shell">
+    <header class="admin-products-header">
+      <a class="admin-brand" href="./index.html" aria-label="Về admin AYS">
+        <span class="brand-mark">AYS</span>
+        <span>AYS · QUẢN TRỊ</span>
+      </a>
+      <div class="admin-header-actions">
+        <a class="admin-signout" href="./products.html">Sản phẩm</a>
+        <a class="admin-signout" href="./orders.html">Đơn hàng</a>
+        <a class="admin-signout" href="./reviews.html">Đánh giá</a>
+        <a class="admin-signout is-current" href="./customers.html" aria-current="page">Khách hàng</a>
+        <a class="admin-signout" href="./gacha.html">Gacha Garden</a>
+        <a class="admin-signout" href="../index.html">Xem cửa hàng</a>
+        <button id="customers-signout" class="admin-signout" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <section class="admin-customers-panel" aria-labelledby="customers-heading">
+      <div class="admin-list-heading">
+        <div>
+          <p class="eyebrow">AYS Admin · MY AYS</p>
+          <h1 id="customers-heading">Khách hàng</h1>
+        </div>
+        <button id="reload-customers" class="admin-signout" type="button">Tải lại</button>
+      </div>
+      <p class="admin-customers-note">Chỉ hiển thị tài khoản My AYS. Đơn khách không đăng nhập không xuất hiện tại đây.</p>
+
+      <form id="customer-search-form" class="admin-customer-search">
+        <label for="customer-search">Tìm theo tên hiển thị hoặc email</label>
+        <div>
+          <input id="customer-search" type="search" maxlength="120" autocomplete="off" placeholder="Nhập tên hoặc email">
+          <button class="admin-signout" type="submit">Tìm</button>
+        </div>
+      </form>
+
+      <p id="customers-message" class="admin-message" role="status" aria-live="polite">Đang tải khách hàng…</p>
+      <div class="admin-customers-layout">
+        <section class="admin-customer-list-panel" aria-label="Danh sách khách hàng">
+          <div id="admin-customer-list" class="admin-customer-list"></div>
+          <div class="admin-customer-pagination">
+            <button id="previous-customers" class="admin-signout" type="button" disabled>← Trang trước</button>
+            <span id="customer-page-indicator">Trang 1</span>
+            <button id="next-customers" class="admin-signout" type="button" disabled>Trang sau →</button>
+          </div>
+        </section>
+
+        <section id="customer-detail-panel" class="admin-customer-detail" aria-labelledby="customer-detail-heading">
+          <div id="customer-detail-empty" class="admin-empty">Chọn một khách hàng để xem hồ sơ và các đơn đã liên kết.</div>
+          <div id="customer-detail" hidden>
+            <p class="eyebrow">HỒ SƠ TÀI KHOẢN</p>
+            <h2 id="customer-detail-heading"></h2>
+            <p id="customer-detail-email" class="admin-customer-email"></p>
+            <p id="customer-detail-joined" class="admin-customer-meta"></p>
+            <div class="admin-customer-stats">
+              <div><span>Đơn đã liên kết</span><strong id="customer-order-count">0</strong></div>
+              <div><span>Giá trị đã xác nhận</span><strong id="customer-order-total">0 ₫</strong></div>
+            </div>
+            <h3>Đơn hàng gần đây</h3>
+            <p id="customer-orders-message" class="admin-message" role="status" aria-live="polite"></p>
+            <div id="admin-customer-orders" class="admin-customer-orders"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="customers.js"></script>
+</body>
+</html>

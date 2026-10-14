@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYS Garden Game | Voucher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .game-page { min-height: 100vh; background: var(--paper); }
+        .game-wrap { width: min(780px, 92vw); margin: 0 auto; padding: 72px 0; text-align: center; }
+        .game-wrap h1 { color: var(--ink); font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: .98; }
+        .game-lead { max-width: 580px; margin: 18px auto 0; color: var(--ink-soft); }
+        .gacha-card {
+            margin-top: 30px;
+            padding: clamp(18px, 5vw, 32px);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--cream);
+            box-shadow: 0 14px 40px rgba(91,64,56,.07);
+        }
+        .gacha-orb {
+            display: grid;
+            width: min(220px, 58vw);
+            aspect-ratio: 1;
+            place-items: center;
+            margin: 0 auto 22px;
+            border: 1px solid rgba(91,64,56,.2);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 28%, #fffdf1, #f1e4c4 70%, #e6d3ae);
+            color: var(--accent-deep);
+            font-size: clamp(4rem, 15vw, 7rem);
+            box-shadow: inset 0 0 0 10px rgba(255,255,255,.35), 0 12px 28px rgba(91,64,56,.12);
+        }
+        .gacha-orb.is-spinning { animation: gacha-wobble .65s ease-in-out infinite alternate; }
+        @keyframes gacha-wobble { from { transform: rotate(-9deg) scale(.97); } to { transform: rotate(9deg) scale(1.04); } }
+        .gacha-status { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; color: var(--ink-soft); }
+        .gacha-status strong { color: var(--ink); }
+        .gacha-event-period { margin-top: 8px; color: var(--muted); font-size: 12px; }
+        .gacha-rules { margin: 24px 0 0; padding: 16px; border-radius: 12px; background: rgba(255,255,255,.65); text-align: left; }
+        .gacha-rules h2 { font-size: 1.2rem; }
+        .gacha-rules ul { display: grid; gap: 6px; margin: 10px 0 0; padding-left: 20px; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
+        #start-game { margin-top: 22px; }
+        #start-game:disabled { cursor: not-allowed; opacity: .55; }
+        #game-message { min-height: 1.6em; margin-top: 14px; color: var(--ink-soft); }
+        #game-message.is-error { color: #a23c35; }
+        #game-account-link { display: inline-flex; margin-top: 8px; color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+        .gacha-result { display: none; margin-top: 20px; padding: 18px; border: 1px solid var(--accent); border-radius: 12px; background: #f3f6cf; color: var(--ink); }
+        .gacha-result.is-visible { display: block; animation: gacha-reveal .35s ease-out both; }
+        @keyframes gacha-reveal { from { opacity: 0; transform: translateY(8px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .gacha-result strong { display: block; margin-top: 5px; font-size: 1.25rem; }
+        .voucher-code { display: block; margin-top: 8px; font: 700 1.3rem var(--mono); letter-spacing: .1em; overflow-wrap: anywhere; }
+        .voucher-note { display: block; margin-top: 8px; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
+        .gacha-rewards { display: grid; gap: 8px; margin-top: 22px; text-align: left; }
+        .gacha-rewards h2, .gacha-history h2 { font-size: 1.35rem; }
+        .gacha-reward, .gacha-history-item { padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.7); }
+        .gacha-reward p, .gacha-history-item p { margin-top: 3px; color: var(--ink-soft); font-size: 13px; }
+        .gacha-history { display: grid; gap: 8px; margin-top: 26px; text-align: left; }
+        .gacha-history-item time { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+        .game-back { display: inline-flex; margin-top: 28px; color: var(--ink); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+        @media (prefers-reduced-motion: reduce) { .gacha-orb.is-spinning, .gacha-result.is-visible { animation: none; } }
+    </style>
+</head>
+
+<body class="game-page">
+    <div class="announcement"><span>✦ Mầm mới mỗi Chủ nhật</span><span>Giao mầm số toàn cầu · Thanh toán an toàn</span></div>
+    <header class="site-header">
+        <a class="brand" href="index.html#home"><span class="brand-mark">AYS</span><span>ADORABLE<br><em>YARD
+                    SANCTUARY</em></span></a>
+        <nav class="main-nav" id="main-navigation" aria-label="Điều hướng chính">
+            <a href="index.html#shop">Vườn AYSie</a>
+            <a href="tos.html">Nội Quy Vườn</a>
+            <a href="about.html">Người Trồng Vườn</a>
+            <a href="game.html">Chơi nhận Voucher</a>
+        </nav>
+        <div class="header-actions">
+            <a class="header-utility-link" href="index.html#shop" aria-label="Tìm sản phẩm"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
+            <a class="header-icon-button" href="index.html#shop" aria-label="Mầm yêu thích"><i class="fa-solid fa-heart" aria-hidden="true"></i><b class="header-count" id="wishlist-count" hidden>0</b></a>
+            <a class="header-icon-button" href="index.html#shop" aria-label="Giỏ hàng"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><b class="header-count" id="cart-count" hidden>0</b></a>
+            <a class="customer-account-button" id="customer-account-button" href="account.html?next=index.html%23shop" aria-label="Đăng nhập hoặc đăng ký My AYS"><span class="account-label-full">Đăng nhập / Đăng ký</span><span class="account-label-compact">Đăng nhập</span></a>
+            <a class="header-icon-button header-notification-link" id="header-notification-link" href="index.html?notifications=1#home" aria-label="Thông báo" title="Thông báo" hidden><i class="fa-solid fa-bell" aria-hidden="true"></i><b class="header-count" id="header-notification-count" hidden>0</b></a>
+            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+        </div>
+    </header>
+    <main class="game-wrap">
+        <p class="eyebrow">AYSIE GACHA GARDEN</p>
+        <h1>Gacha Garden</h1>
+        <p class="game-lead">Mở một quả cầu may mắn trong khu vườn. Kết quả được quyết định an toàn bởi máy chủ và voucher trúng thưởng sẽ tự lưu vào Ví Voucher My AYS.</p>
+        <section class="gacha-card" aria-labelledby="gacha-heading">
+            <h2 id="gacha-heading" class="eyebrow">MỞ QUẢ CẦU MAY MẮN</h2>
+            <div id="gacha-orb" class="gacha-orb" aria-hidden="true">✿</div>
+            <div class="gacha-status">
+                <span>Lượt hôm nay: <strong id="plays-remaining">Đang tải</strong></span>
+                <span>Sự kiện: <strong id="event-status">Đang kiểm tra</strong></span>
+                <span>Voucher tháng này: <strong id="monthly-status">Đang kiểm tra</strong></span>
+            </div>
+            <p class="gacha-event-period" id="event-period">Thời gian sự kiện: đang tải…</p>
+            <button class="button button-dark" id="start-game" type="button" disabled>Mở quả cầu <span>✦</span></button>
+            <p id="game-message" role="status" aria-live="polite">Đang kiểm tra tài khoản My AYS…</p>
+            <a id="game-account-link" href="account.html?next=game.html" hidden>Đăng nhập hoặc tạo tài khoản My AYS ↗</a>
+            <div class="gacha-result" id="gacha-result" role="status" aria-live="polite">
+                <span id="result-emoji" aria-hidden="true">🌱</span>
+                <strong id="result-title"></strong>
+                <span id="result-message"></span>
+                <code class="voucher-code" id="voucher-code" hidden></code>
+                <small class="voucher-note" id="voucher-note" hidden></small>
+            </div>
+            <div class="gacha-rules">
+                <h2>Thể lệ tham gia</h2>
+                <ul>
+                    <li>Đăng nhập bằng My AYS đã xác minh email để tham gia.</li>
+                    <li>Mỗi tài khoản có tối đa 3 lượt/ngày trong thời gian sự kiện; lượt sử dụng theo giờ Việt Nam.</li>
+                    <li>Lượt miễn phí do shop cấu hình; lượt thưởng từ nhiệm vụ hoặc chương trình khuyến mãi sẽ được cộng riêng vào tài khoản.</li>
+                    <li>Mỗi email chỉ nhận tối đa 1 mã giảm giá trong một tháng. Đã nhận mã tháng này thì không thể chơi tiếp để nhận thêm, kể cả sau khi đã dùng mã.</li>
+                    <li>Phần thưởng có giới hạn số lượng; khi hết quà, máy chủ sẽ không phát vượt tồn kho.</li>
+                    <li>Voucher được lưu trong My AYS, dùng một lần trong 7 ngày cho sản phẩm giá thường, giấy phép cá nhân.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="gacha-rewards" aria-labelledby="rewards-heading">
+            <h2 id="rewards-heading">Phần thưởng hiện có</h2>
+            <div id="gacha-reward-list"><p>Đang tải phần thưởng…</p></div>
+        </section>
+        <section class="gacha-history" aria-labelledby="history-heading">
+            <h2 id="history-heading">Lịch sử lượt chơi gần đây</h2>
+            <div id="gacha-history-list"><p>Đang tải lịch sử…</p></div>
+        </section>
+        <a class="game-back" href="index.html#shop">← Về khu vườn</a>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/site-header.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>

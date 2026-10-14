@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gacha Garden | AYS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page admin-products-page">
+  <main class="admin-products-shell">
+    <header class="admin-products-header">
+      <a class="admin-brand" href="./index.html" aria-label="Về admin AYS">
+        <span class="brand-mark">AYS</span>
+        <span>AYS · QUẢN TRỊ</span>
+      </a>
+      <div class="admin-header-actions">
+        <a class="admin-signout" href="./products.html">Sản phẩm</a>
+        <a class="admin-signout" href="./orders.html">Đơn hàng</a>
+        <a class="admin-signout" href="./customers.html">Khách hàng</a>
+        <a class="admin-signout is-current" href="./gacha.html" aria-current="page">Gacha Garden</a>
+        <a class="admin-signout" href="../index.html">Xem cửa hàng</a>
+        <button id="gacha-admin-signout" class="admin-signout" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <section class="admin-gacha-panel" aria-labelledby="gacha-admin-heading">
+      <div class="admin-list-heading">
+        <div>
+          <p class="eyebrow">AYS ADMIN · GARDEN GAME</p>
+          <h1 id="gacha-admin-heading">Thiết lập Gacha Garden</h1>
+        </div>
+        <button id="reload-gacha-admin" class="admin-signout" type="button">Tải lại</button>
+      </div>
+      <p id="gacha-admin-message" class="admin-message" role="status" aria-live="polite"></p>
+
+      <section class="admin-gacha-section" aria-labelledby="gacha-event-heading">
+        <h2 id="gacha-event-heading">Sự kiện và lượt miễn phí</h2>
+        <form id="gacha-event-form" class="admin-gacha-form">
+          <label class="admin-gacha-checkbox"><input id="gacha-event-active" type="checkbox"> Bật sự kiện</label>
+          <label for="gacha-event-start">Bắt đầu (giờ Việt Nam)</label>
+          <input id="gacha-event-start" type="datetime-local" required>
+          <label for="gacha-event-end">Kết thúc (giờ Việt Nam)</label>
+          <input id="gacha-event-end" type="datetime-local" required>
+          <label for="gacha-daily-limit">Lượt miễn phí mỗi ngày / tài khoản</label>
+          <input id="gacha-daily-limit" type="number" min="1" max="100" required>
+          <button class="button button-dark" type="submit">Lưu thiết lập sự kiện</button>
+        </form>
+        <p class="admin-gacha-help">Mỗi email chỉ được nhận tối đa một voucher trong tháng. Lượt ngày mới tính theo giờ Việt Nam. Lượt nhiệm vụ/khuyến mãi được cấp riêng bên dưới.</p>
+      </section>
+
+      <section class="admin-gacha-section" aria-labelledby="gacha-rewards-heading">
+        <div class="admin-list-heading">
+          <div>
+            <h2 id="gacha-rewards-heading">Phần thưởng và xác suất</h2>
+            <p class="admin-gacha-help">Xác suất tính theo trọng số trên tổng các phần thưởng còn tồn. Ví dụ 10 và 90 tương ứng khoảng 10% và 90% khi cả hai còn hàng.</p>
+          </div>
+          <button id="add-gacha-reward" class="admin-signout" type="button">Thêm phần thưởng</button>
+        </div>
+        <div id="admin-gacha-rewards" class="admin-gacha-rewards"></div>
+        <form id="gacha-new-reward-form" class="admin-gacha-form">
+          <h3>Thêm phần thưởng mới</h3>
+          <label for="new-reward-title">Tên phần thưởng</label>
+          <input id="new-reward-title" maxlength="100" required>
+          <label for="new-reward-description">Mô tả kết quả</label>
+          <input id="new-reward-description" maxlength="300" required>
+          <label for="new-reward-type">Loại</label>
+          <select id="new-reward-type" required>
+            <option value="none">Hạt mầm / không trúng</option>
+            <option value="voucher">Voucher</option>
+          </select>
+          <label for="new-reward-weight">Trọng số xác suất</label>
+          <input id="new-reward-weight" type="number" min="1" max="1000000" value="10" required>
+          <label for="new-reward-inventory">Số lượng tối đa (để trống nếu không giới hạn)</label>
+          <input id="new-reward-inventory" type="number" min="0" max="1000000">
+          <label for="new-reward-discount">Giảm giá voucher (%)</label>
+          <input id="new-reward-discount" type="number" min="1" max="100">
+          <button class="button button-dark" type="submit">Thêm phần thưởng</button>
+        </form>
+      </section>
+
+      <section class="admin-gacha-section" aria-labelledby="gacha-credit-heading">
+        <h2 id="gacha-credit-heading">Cấp lượt nhiệm vụ / khuyến mãi</h2>
+        <form id="gacha-credit-form" class="admin-gacha-form admin-gacha-credit-form">
+          <label for="credit-email">Email My AYS đã xác minh</label>
+          <input id="credit-email" type="email" autocomplete="email" required>
+          <label for="credit-source">Nguồn lượt thưởng</label>
+          <select id="credit-source" required>
+            <option value="task">Hoàn thành nhiệm vụ</option>
+            <option value="promotion">Chương trình khuyến mãi</option>
+            <option value="admin">Cấp thủ công</option>
+          </select>
+          <label for="credit-description">Ghi chú</label>
+          <input id="credit-description" type="text" maxlength="240" required>
+          <label for="credit-amount">Số lượt</label>
+          <input id="credit-amount" type="number" min="1" max="100" value="1" required>
+          <label for="credit-expires">Hạn sử dụng (để trống nếu không hết hạn)</label>
+          <input id="credit-expires" type="datetime-local">
+          <button class="button button-dark" type="submit">Cấp lượt thưởng</button>
+        </form>
+      </section>
+
+      <section class="admin-gacha-section" aria-labelledby="gacha-history-heading">
+        <div class="admin-list-heading">
+          <h2 id="gacha-history-heading">Lịch sử lượt chơi</h2>
+          <button id="reload-gacha-history" class="admin-signout" type="button">Tải lại lịch sử</button>
+        </div>
+        <div id="admin-gacha-history" class="admin-gacha-history"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="gacha.js"></script>
+</body>
+</html>

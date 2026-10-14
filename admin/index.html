@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AYS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <a class="admin-brand" href="../index.html" aria-label="Về website AYS">
+      <span class="brand-mark">AYS</span>
+      <span>ADORABLE<br><em>YARD SANCTUARY</em></span>
+    </a>
+
+    <section class="admin-card" aria-labelledby="admin-title">
+      <p class="eyebrow">Khu vực quản trị</p>
+      <h1 id="admin-title">Đăng nhập</h1>
+      <p class="admin-intro">Đăng nhập bằng tài khoản quản trị AYS của bạn.</p>
+
+      <form id="admin-login-form">
+        <label for="admin-email">Email</label>
+        <input id="admin-email" name="email" type="email" autocomplete="username" required>
+        <label for="admin-password">Mật khẩu</label>
+        <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-dark full-width" type="submit">Đăng nhập</button>
+      </form>
+      <button id="admin-forgot-password" class="admin-link-button" type="button">Quên mật khẩu?</button>
+
+      <p id="admin-message" class="admin-message" role="status" aria-live="polite"></p>
+      <a id="admin-products-link" class="admin-reset-link" href="./products.html" hidden>Đi tới quản lý sản phẩm</a>
+      <a id="admin-orders-link" class="admin-reset-link" href="./orders.html" hidden>Đi tới quản lý đơn hàng</a>
+      <a id="admin-customers-link" class="admin-reset-link" href="./customers.html" hidden>Đi tới quản lý khách hàng</a>
+      <a id="admin-gacha-link" class="admin-reset-link" href="./gacha.html" hidden>Đi tới thiết lập Gacha Garden</a>
+      <button id="admin-signout" class="admin-signout" type="button" hidden>Đăng xuất</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

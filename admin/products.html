@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quản lý sản phẩm | AYS Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page admin-products-page">
+  <main class="admin-products-shell">
+    <header class="admin-products-header">
+      <a class="admin-brand" href="./index.html" aria-label="Về admin AYS">
+        <span class="brand-mark">AYS</span>
+        <span>AYS · QUẢN TRỊ</span>
+      </a>
+      <div class="admin-header-actions">
+        <a class="admin-signout" href="./orders.html">Quản lý đơn hàng</a>
+        <a class="admin-signout" href="./reviews.html">Duyệt đánh giá</a>
+        <a class="admin-signout" href="./customers.html">Khách hàng</a>
+        <a class="admin-signout" href="./gacha.html">Gacha Garden</a>
+        <a class="admin-signout" href="../index.html">Xem cửa hàng</a>
+        <button id="products-signout" class="admin-signout" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <div class="admin-products-layout">
+      <section class="admin-list-panel">
+        <div class="admin-list-heading">
+          <div>
+            <p class="eyebrow">AYS Admin</p>
+            <h1>Sản phẩm</h1>
+          </div>
+          <button id="new-product" class="button button-dark" type="button">Thêm sản phẩm</button>
+        </div>
+        <p id="products-message" class="admin-message" role="status" aria-live="polite">Đang tải sản phẩm…</p>
+        <div class="admin-product-list" id="admin-product-list"></div>
+      </section>
+
+      <section class="admin-editor-panel" aria-labelledby="editor-title">
+        <div class="admin-list-heading">
+          <div>
+            <p class="eyebrow">Thông tin sản phẩm</p>
+            <h2 id="editor-title">Thêm sản phẩm</h2>
+          </div>
+        </div>
+
+        <form id="product-form" novalidate>
+          <input type="hidden" name="id">
+          <label>Tên sản phẩm
+            <input name="name" type="text" maxlength="160" required>
+          </label>
+          <label>Slug
+            <input name="slug" type="text" maxlength="180" required>
+          </label>
+          <label>Mô tả
+            <textarea name="description" rows="4"></textarea>
+          </label>
+          <div class="admin-form-grid">
+            <label>Giá cá nhân (VND)
+              <input name="price" type="number" min="0" step="1" required>
+            </label>
+            <label>Giá sale (không bắt buộc)
+              <input name="sale_price" type="number" min="0" step="1">
+            </label>
+            <label>Giá thương mại (không bắt buộc)
+              <input name="commercial_price" type="number" min="0" step="1">
+            </label>
+            <label>Tồn kho (bắt buộc với sản phẩm có số lượng)
+              <input name="stock" type="number" min="0" step="1">
+            </label>
+          </div>
+          <div class="admin-form-grid">
+            <label>Danh mục
+              <select name="category" required>
+                <option value="oc">OCs & Characters</option>
+                <option value="base">Bases & Templates</option>
+                <option value="outfit">Outfits & Fashion</option>
+                <option value="design">Design Assets</option>
+                <option value="elements">Elements</option>
+              </select>
+            </label>
+            <label>Loại design (nếu là Design Assets)
+              <input name="design_type" type="text" placeholder="cards, goods, paper...">
+            </label>
+            <label>Trạng thái tồn kho
+              <select name="status">
+                <option value="available">Còn hàng</option>
+                <option value="sold">Hết hàng</option>
+              </select>
+            </label>
+            <label>Thứ tự hiển thị
+              <input name="sort_order" type="number" step="1" value="0">
+            </label>
+          </div>
+          <label>Ảnh chính (Public URL)
+            <input name="image_url" type="url" required>
+          </label>
+          <div class="admin-upload-row">
+            <input id="product-image-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+            <button id="upload-product-image" class="admin-signout" type="button">Tải ảnh lên</button>
+          </div>
+          <label>Ảnh gallery (mỗi URL một dòng)
+            <textarea name="gallery" rows="3"></textarea>
+          </label>
+          <label>Tags (phân cách bằng dấu phẩy)
+            <input name="tags" type="text">
+          </label>
+          <label>Link sản phẩm (không bắt buộc)
+            <input name="product_url" type="url">
+          </label>
+          <p id="product-form-message" class="admin-message" role="status" aria-live="polite"></p>
+          <div class="admin-form-actions">
+            <button class="admin-signout" type="submit" name="save_as" value="draft">Lưu nháp</button>
+            <button class="button button-dark" type="submit" name="save_as" value="published">Xuất bản</button>
+            <button id="archive-product" class="admin-danger-button" type="button" hidden>Lưu trữ</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="products.js"></script>
+</body>
+</html>

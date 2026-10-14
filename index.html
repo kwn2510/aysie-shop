@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adorable Yard Sanctuary - adoptable bases, OCs and digital design assets.">
+    <title>Adorable Yard Sanctuary | Digital adoptables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Potta+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="announcement"><span>✦ Mầm mới mỗi Chủ nhật</span><span>Giao mầm số toàn cầu · Thanh toán an toàn</span></div>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Adorable Yard Sanctuary home"><span
+                class="brand-mark">AYS</span><span>ADORABLE<br><em>YARD SANCTUARY</em></span></a>
+        <nav class="main-nav" id="main-navigation" aria-label="Điều hướng chính">
+            <a href="#shop">Vườn AYSie</a>
+            <a href="tos.html">Nội Quy Vườn</a>
+            <a href="about.html">Người Trồng Vườn</a>
+            <a href="game.html">Chơi nhận Voucher</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-button search-toggle" aria-label="Mở tìm kiếm" aria-expanded="false">⌕</button>
+            <button class="header-icon-button" id="open-wishlist" aria-label="Mở sản phẩm yêu thích"
+                title="Sản phẩm yêu thích">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <b class="header-count" id="wishlist-count">0</b>
+            </button>
+            <button class="header-icon-button" id="open-cart" aria-label="Mở giỏ hàng" title="Giỏ hàng">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <b class="header-count" id="cart-count">0</b>
+            </button>
+            <a class="customer-account-button" id="customer-account-button"
+                href="account.html?next=index.html%23shop" aria-label="Đăng nhập hoặc đăng ký My AYS"
+                title="Đăng nhập / Đăng ký">
+                <span class="account-label-full">Đăng nhập / Đăng ký</span>
+                <span class="account-label-compact">Đăng nhập</span>
+            </a>
+            <div class="header-notifications">
+                <button class="header-icon-button header-notifications-toggle" id="header-notifications-toggle"
+                    type="button" aria-label="Mở thông báo" title="Thông báo" aria-expanded="false"
+                    aria-controls="header-notification-popover" hidden>
+                    <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                    <b class="header-count" id="header-notification-count" hidden>0</b>
+                </button>
+                <section class="header-notification-popover" id="header-notification-popover"
+                    aria-label="Thông báo tài khoản" hidden>
+                    <div class="header-notification-heading">
+                        <h2>Thông báo</h2>
+                    </div>
+                    <p class="header-notification-status" id="header-notification-status" role="status">
+                        Đăng nhập để xem thông báo.
+                    </p>
+                    <div class="header-notification-list" id="header-notification-list"></div>
+                </section>
+            </div>
+            <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false"
+                aria-controls="main-navigation">☰</button>
+        </div>
+        <div class="search-popover" id="search-popover" aria-hidden="true"><label
+                class="search-field"><span>⌕</span><input id="search-input" type="search" placeholder="Tìm sản phẩm..."
+                    autocomplete="off"></label>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-copy">
+                <p class="eyebrow">Cùng AYSie · 2026</p>
+                <h1>Stay in<br><span>our little yard</span></h1>
+                <p class="hero-intro">Ở đây có bán des goods cho idol, OC/mascot, outfit, base và elements.</p>
+                <div class="hero-actions">
+                    <a href="#shop" class="button button-dark">Ghé vườn<span>↗</span></a>
+                    <a href="#how-to-order" class="text-link">Cách mua<span>→</span></a>
+                </div>
+            </div>
+            <div class="hero-art">
+                <img class="hero-art-image" src="./media/banner1.png" alt="Adorable Yard Sanctuary illustrated banner">
+                <img class="hero-art-image" src="./media/banner2.png" alt="Adorable Yard Sanctuary illustrated banner">
+            </div>
+        </section>
+
+        <section class="ticker"><span>ĐANG CÓ MẦM</span><span>✦</span><span>BASES</span><span>✦</span><span>ORIGINAL
+            CHARACTERS</span><span>✦</span><span>DESIGN ASSETS</span><span>✦</span><span>ĐANG CÓ MẦM</span>
+        </section>
+
+        <section class="how-section" id="how-to-order">
+            <div class="section-heading centered">
+                <div>
+                    <p class="eyebrow">Dễ lắm aysie chỉ cho</p>
+                    <h2>Cách hái <i>mầm.</i></h2>
+                </div>
+            </div>
+            <div class="steps">
+                <article class="step">
+                    <div class="step-inner">
+                        <div class="step-face step-front">
+                            <span class="step-number">01</span>
+                            <h3>Chọn Mầm Yêu Thích</h3>
+                            <button class="step-flip-toggle" type="button" aria-expanded="false" aria-controls="step-details-1">Chạm để xem chi tiết <span aria-hidden="true">↻</span></button>
+                        </div>
+                        <div class="step-face step-back" id="step-details-1">
+                            <div class="step-description">
+                                <p>Dạo một vòng khu vườn để xem sản phẩm. Đăng ký hoặc đăng nhập My AYS để thêm mầm vào giỏ và đặt hàng.</p>
+                                <p>Đừng quên xem qua Nội Quy Vườn của từng món nhé!</p>
+                            </div>
+                            <button class="step-flip-toggle" type="button" aria-expanded="true" aria-controls="step-details-1">Quay lại <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-inner">
+                        <div class="step-face step-front">
+                            <span class="step-number">02</span>
+                            <h3>Tưới Nước</h3>
+                            <button class="step-flip-toggle" type="button" aria-expanded="false" aria-controls="step-details-2">Chạm để xem chi tiết <span aria-hidden="true">↻</span></button>
+                        </div>
+                        <div class="step-face step-back" id="step-details-2">
+                            <div class="step-description">
+                                <p>Quét mã QR để thanh toán đúng số dư. Điền đầy đủ thông tin liên lạc và tải lên ảnh biên lai (Proof Bill) để xác nhận tưới mầm nhé!</p>
+                            </div>
+                            <button class="step-flip-toggle" type="button" aria-expanded="true" aria-controls="step-details-2">Quay lại <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-inner">
+                        <div class="step-face step-front">
+                            <span class="step-number">03</span>
+                            <h3>Mầm Về Tới Tay</h3>
+                            <button class="step-flip-toggle" type="button" aria-expanded="false" aria-controls="step-details-3">Chạm để xem chi tiết <span aria-hidden="true">↻</span></button>
+                        </div>
+                        <div class="step-face step-back" id="step-details-3">
+                            <div class="step-description">
+                                <p>Sau khi nhấn Gửi Hạt Giống, file/link tải sẽ gửi thẳng vào Gmail của bạn trong vòng 1–12 tiếng. Nếu cần thu hoạch gấp, cứ nhắn ngay cho nhà AYSie nha!</p>
+                            </div>
+                            <button class="step-flip-toggle" type="button" aria-expanded="true" aria-controls="step-details-3">Quay lại <span aria-hidden="true">↻</span></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-strip" aria-label="Danh mục mầm">
+            <p class="eyebrow">Dạo quanh khu vườn</p>
+            <div class="category-strip-list">
+                <span>Design Assets</span><span>OCs & Characters</span><span>Bases & Templates</span><span>Outfits &
+                    Fashion</span><span>Elements</span>
+            </div>
+        </section>
+
+        <section class="product-feature-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Vừa trổ mầm</p>
+                    <h2>Mầm <i>mới trổ bông.</i></h2>
+                </div>
+            </div>
+            <div class="product-grid product-grid-featured" id="newest-products"></div>
+        </section>
+
+        <section class="product-feature-section sale-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Ưu đãi trong vườn</p>
+                    <h2>Mầm <i>giá tốt.</i></h2>
+                </div>
+                <div class="sale-carousel-controls" aria-label="Điều khiển sản phẩm giá tốt">
+                    <button class="sale-carousel-arrow" type="button" data-sale-direction="-1" aria-label="Sản phẩm giảm giá trước">‹</button>
+                    <button class="sale-carousel-arrow" type="button" data-sale-direction="1" aria-label="Sản phẩm giảm giá tiếp theo">›</button>
+                </div>
+            </div>
+            <div class="sale-carousel-viewport" id="sale-carousel-viewport">
+                <div class="product-grid product-grid-featured sale-product-list" id="sale-products"></div>
+            </div>
+        </section>
+
+        <section class="shop-section" id="shop">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">AYSie</p>
+                    <h2>Ghé vườn <i>tìm mầm.</i></h2>
+                </div>
+                <p class="section-description">Một lời nhắn nhỏ trước khi hái mầm.<br>
+                    Vui lòng đọc Nội Quy Vườn của từng mầm trước khi mua. Một số mầm có quy định riêng về
+                    chỉnh sửa, sử dụng thương mại, chuyển nhượng và credit.</p>
+            </div>
+            <div class="shop-layout">
+                <aside class="filters">
+                    <div class="filter-heading">
+                        <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-options">Lọc mầm theo <span aria-hidden="true">☰</span></button>
+                        <button id="clear-filters">Xóa bộ lọc</button>
+                    </div>
+                    <div class="filter-options" id="filter-options">
+                    <div class="filter-group">
+                        <p>Category</p>
+                        <label><input type="checkbox" value="oc" class="category-filter"> OCs & Characters
+                            <span data-filter-count="category:oc">00</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" value="base" class="category-filter"> Bases & Templates
+                            <span data-filter-count="category:base">00</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" value="outfit" class="category-filter"> Outfits & Fashion
+                            <span data-filter-count="category:outfit">00</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" value="design" class="category-filter"> Design Assets
+                            <span data-filter-count="category:design">00</span>
+                        </label>
+                        <div class="filter-subgroup">
+                            <p>Design Assets</p>
+                            <label><input type="checkbox" value="cards" class="design-type-filter"> Cards <span data-filter-count="designType:cards">00</span></label>
+                            <label><input type="checkbox" value="goods" class="design-type-filter"> Goods <span data-filter-count="designType:goods">00</span></label>
+                            <label><input type="checkbox" value="paper" class="design-type-filter"> Paper <span data-filter-count="designType:paper">00</span></label>
+                            <label><input type="checkbox" value="fanproject" class="design-type-filter">
+                                Fanproject <span data-filter-count="designType:fanproject">00</span></label>
+                        </div>
+                        <label>
+                            <input type="checkbox" value="elements" class="category-filter"> Elements
+                            <span data-filter-count="category:elements">00</span>
+                        </label>
+                    </div>
+                    <div class="filter-group">
+                        <p>Price</p>
+                        <label>
+                            <input type="radio" name="price" value="under20" class="price-filter"> Dưới 20.000 VND
+                        </label>
+                        <label>
+                            <input type="radio" name="price" value="20to40" class="price-filter"> 20.000 - 100.000 VND
+                        </label>
+                        <label>
+                            <input type="radio" name="price" value="over40" class="price-filter"> Trên 100.000 VND
+                        </label>
+                    </div>
+                    <div class="filter-group">
+                        <p>Status</p>
+                        <label>
+                            <input type="checkbox" value="available" class="status-filter"> Sẵn Thu Hoạch
+                            <span data-filter-count="status:available">00</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" value="sold" class="status-filter"> Chờ Mùa Sau
+                            <span data-filter-count="status:sold">00</span>
+                        </label>
+                    </div>
+                    </div>
+                </aside>
+                <div class="products-wrap">
+                    <div class="shop-toolbar">
+                        <span id="product-count">09 pieces</span>
+                        <label class="sort-select">Sắp xếp theo
+                            <select id="sort-products">
+                                <option value="featured">Nổi bật</option>
+                                <option value="newest" selected>Mới nhất</option>
+                                <option value="low">Giá: thấp đến cao</option>
+                                <option value="high">Giá: cao đến thấp</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="product-grid" id="product-grid"></div>
+                    <div class="pagination" id="product-pagination" aria-label="Product pages"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="shop-reviews-section" aria-labelledby="reviews-title">
+        <div class="shop-reviews-inner">
+            <div class="shop-reviews-top">
+                <div class="shop-reviews-heading">
+                    <h2 id="reviews-title">Little love notes <span aria-hidden="true">♡</span></h2>
+                    <p>Những lời nhắn dễ thương từ khách hàng</p>
+                </div>
+                <label class="review-filter-label">
+                    <select id="review-rating-filter" aria-label="Chọn mức sao để lọc đánh giá">
+                        <option value="all">Tất cả</option>
+                        <option value="5">5 ★</option>
+                        <option value="4">4 ★</option>
+                        <option value="3">3 ★</option>
+                        <option value="2">2 ★</option>
+                        <option value="1">1 ★</option>
+                    </select>
+                </label>
+            </div>
+            <div class="review-carousel">
+                <button class="review-carousel-arrow review-carousel-prev" type="button" aria-label="Đánh giá trước" hidden>‹</button>
+                <div class="review-carousel-viewport">
+                    <div id="review-list" class="review-list" aria-live="polite"></div>
+                </div>
+                <button class="review-carousel-arrow review-carousel-next" type="button" aria-label="Đánh giá tiếp theo" hidden>›</button>
+            </div>
+            <div class="review-list-actions" hidden>
+                <span id="review-count" class="review-count"></span>
+                <button id="show-all-reviews" class="review-show-all" type="button" hidden>Xem tất cả bình luận</button>
+            </div>
+            <form id="review-form" class="review-form">
+                <h3>Gửi lời yêu thương <span aria-hidden="true">♡</span></h3>
+                <label class="review-name-label">
+                    <span class="visually-hidden">Tên hoặc nickname của bạn</span>
+                    <input name="display_name" type="text" minlength="2" maxlength="60" autocomplete="name" placeholder="Tên hoặc nickname của bạn" required>
+                </label>
+                <fieldset class="review-rating">
+                    <legend>Bạn đánh giá thế nào?</legend>
+                    <div class="review-rating-options">
+                        <label><input type="radio" name="rating" value="1" required><span>1 <b>★</b></span></label>
+                        <label><input type="radio" name="rating" value="2"><span>2 <b>★</b></span></label>
+                        <label><input type="radio" name="rating" value="3"><span>3 <b>★</b></span></label>
+                        <label><input type="radio" name="rating" value="4"><span>4 <b>★</b></span></label>
+                        <label><input type="radio" name="rating" value="5" checked><span>5 <b>★</b></span></label>
+                    </div>
+                </fieldset>
+                <label class="review-comment-label">
+                    <span class="visually-hidden">Chia sẻ cảm nhận của bạn</span>
+                    <textarea name="comment" rows="4" minlength="10" maxlength="1200" placeholder="Chia sẻ cảm nhận của bạn..." required></textarea>
+                </label>
+                <button class="button button-dark" type="submit">Gửi lời yêu thương <span aria-hidden="true">♡</span></button>
+                <p id="review-message" class="review-message" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <a class="brand" href="#home">
+                <span class="brand-mark">AYS</span>
+                <span>ADORABLE<br>
+                    <em>YARD SANCTUARY</em>
+                </span>
+            </a>
+            <p>Little digital treasures<br>for big imaginary worlds.</p>
+        </div>
+        <div class="footer-links">
+            <div>
+                <p>Khám phá</p>
+                <a href="#shop">Tất cả mầm</a>
+                <a href="about.html">Về khu vườn</a>
+                <a href="#how-to-order">Cách mua mầm</a>
+                <a href="track-order.html">Theo dõi đơn hàng</a>
+                <a href="account.html">Tài khoản My AYS</a>
+            </div>
+            <div>
+                <p>Thông tin cần biết</p>
+                <a href="tos.html">Điều khoản mua hàng</a>
+                <a href="mailto:kwn.hsthuylinh@gmail.com">Liên hệ</a>
+                <a href="tos.html#privacy">Chính sách riêng tư</a>
+            </div>
+            <div>
+                <p>Gửi lời chào</p>
+                <a href="mailto:kwn.hsthuylinh@gmail.com">Gửi email ↗</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Adorable Yard Sanctuary</span>
+            <span>Gieo bằng tò mò & yêu thương</span>
+        </div>
+    </footer>
+
+    <div class="modal-backdrop" id="product-modal" aria-hidden="true">
+        <div class="product-modal modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+            <button class="close-modal" data-close-modal aria-label="Close">×</button>
+            <div class="modal-media">
+                <div class="modal-preview" id="modal-preview"></div>
+                <div class="modal-gallery" id="modal-gallery"></div>
+            </div>
+            <div class="modal-info">
+                <p class="eyebrow" id="modal-category"></p>
+                <h2 id="modal-name"></h2>
+                <div class="modal-price-row">
+                    <p class="modal-price" id="modal-price"></p>
+                    <span class="modal-stock" id="modal-stock" hidden></span>
+                </div>
+                <section class="product-description" id="product-description">
+                    <h3>Mô tả sản phẩm</h3>
+                    <p id="modal-description"></p>
+                </section>
+                <div class="tag-list" id="modal-tags"></div>
+                <div id="license-options" class="license-options"></div>
+                <a class="tos-modal-link" href="tos.html" target="_blank" rel="noopener">Xem Nội Quy Vườn ↗</a>
+                <button class="button button-dark full-width" id="modal-add">Hái Vào Giỏ
+                    <span>＋</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="cart-modal" aria-hidden="true">
+        <div class="cart-panel modal-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+            <div class="cart-header">
+                <div>
+                    <p class="eyebrow">Mầm bạn đã chọn</p>
+                    <h2 id="cart-title">Giỏ mầm <span id="cart-title-count">(0)</span></h2>
+                </div>
+                <button class="close-modal" data-close-modal aria-label="Close">×</button>
+            </div>
+            <div id="cart-items"></div>
+            <div class="cart-footer">
+                <div>
+                    <span>Subtotal</span>
+                    <strong id="cart-total">0 ₫</strong>
+                </div>
+                <button class="button button-dark full-width" id="checkout-button"> Rinh Về Nhà
+                    <span>→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="wishlist-modal" aria-hidden="true">
+        <div class="cart-panel modal-panel" role="dialog" aria-modal="true" aria-labelledby="wishlist-title">
+            <div class="cart-header">
+                <div>
+                    <p class="eyebrow">Những mầm bạn yêu</p>
+                    <h2 id="wishlist-title">Mầm yêu thích <span id="wishlist-title-count">(0)</span></h2>
+                </div>
+                <button class="close-modal" data-close-modal aria-label="Close">×</button>
+            </div>
+            <div id="wishlist-items"></div>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="checkout-modal" aria-hidden="true">
+        <div class="checkout-panel modal-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+            <button class="close-modal" data-close-modal aria-label="Close">×</button>
+            <div class="checkout-header">
+                <p class="eyebrow">AYSie</p>
+                <br>
+                <h2 id="checkout-title">Giỏ Mầm <i>aysie.</i></h2>
+            </div>
+            <div class="checkout-order-summary">
+                <p class="eyebrow">Bạn đã thêm những mầm gì vào Giỏ Mầm nào!</p>
+                <div id="checkout-order-items"></div>
+                <div class="checkout-order-total"><span>Tạm tính</span><strong id="checkout-subtotal">0 ₫</strong></div>
+                <div class="checkout-order-total checkout-discount-row" id="checkout-discount-row" hidden><span>Voucher <strong id="checkout-voucher-label"></strong></span><strong id="checkout-discount">−0 ₫</strong></div>
+                <div class="checkout-order-total"><span>Thanh toán</span><strong id="checkout-total">0 ₫</strong></div>
+            </div>
+            <div class="bank-payment">
+                <div class="qr-wrap"><img id="bank-qr" alt="Mã QR chuyển khoản"></div>
+                <div class="bank-details">
+                    <p class="eyebrow">Thông tin chuyển khoản</p>
+                    <h3 id="bank-name">YOUR BANK NAME</h3>
+                    <dl>
+                        <div>
+                            <dt>Chủ tài khoản</dt>
+                            <dd id="account-name">YOUR ACCOUNT NAME</dd>
+                        </div>
+                        <div>
+                            <dt>Số tài khoản</dt>
+                            <dd id="account-number">0123456789</dd>
+                        </div>
+                        <div>
+                            <dt>Nội dung</dt>
+                            <dd id="transfer-content">AYS + YOUR EMAIL</dd>
+                        </div>
+                    </dl>
+                    <p class="payment-tip">Vui lòng ghi đúng nội dung chuyển khoản để shop đối soát nhanh hơn.</p>
+                </div>
+            </div>
+            <h3 class="checkout-form-title">Thông tin thanh toán</h3>
+            <form id="checkout-form">
+                <div class="form-grid">
+                    <label>Họ và tên
+                        <input required type="text" id="customer-name" name="name" placeholder="Tên của bạn">
+                    </label>
+                    <label>Gmail / Email
+                        <input required type="email" id="customer-email" name="email" placeholder="email@cuaban.com">
+                    </label>
+                </div>
+                <p class="checkout-account-note">Đơn hàng sẽ được lưu vào <a href="account.html">My AYS</a>. Hãy dùng email của tài khoản đã đăng nhập; voucher yêu cầu email xác minh.</p>
+                <div class="checkout-voucher">
+                    <label for="checkout-voucher-code">Voucher My AYS</label>
+                    <div class="checkout-voucher-entry">
+                        <input id="checkout-voucher-code" type="text" maxlength="32" autocomplete="off" placeholder="Ví dụ: AYS-AB12CD34EF">
+                        <button id="apply-checkout-voucher" class="button" type="button">Áp dụng</button>
+                        <button id="remove-checkout-voucher" class="checkout-voucher-remove" type="button" hidden>Bỏ</button>
+                    </div>
+                    <p id="checkout-voucher-message" class="checkout-voucher-message" role="status" aria-live="polite">Voucher chỉ dùng được khi đăng nhập đúng tài khoản My AYS.</p>
+                </div>
+                <label>Mạng xã hội để shop liên hệ trong trường hợp gmail bị sai (Gửi Link)
+                    <input type="text" id="customer-contact" name="contact" placeholder="Discord, Instagram...">
+                </label>
+                <label>Chú ý cho shop (nếu có)
+                    <textarea id="order-note" name="order_note" rows="3"
+                        placeholder="Điều gì bạn muốn nhắn gửi?"></textarea>
+                </label>
+                <!-- <label>Mã giao dịch (optional)
+                <input type="text" id="payment-reference" name="payment_reference" placeholder="Nhập mã giao dịch sau khi chuyển khoản">
+            </label> -->
+                <label>Upload bill thanh toán
+                    <input required type="file" id="payment-bill" name="payment_bill" accept="image/*,.pdf">
+                </label>
+                <fieldset>
+                    <legend>Phương thức thanh toán</legend>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="bank_transfer" checked>
+                        <span>
+                            <b>Chuyển khoản ngân hàng</b>
+                            <small>Shop sẽ kiểm tra bill trước khi gửi file</small>
+                        </span>
+                        <strong>↗</strong>
+                    </label>
+                </fieldset>
+                <button class="button button-dark full-width" type="submit">Tôi đã thanh toán · Gửi Hạt Giống
+                    <span>→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-backdrop" id="success-modal" aria-hidden="true">
+        <div class="success-panel modal-panel" role="dialog" aria-modal="true" aria-labelledby="success-title">
+            <button class="close-modal" data-close-modal aria-label="Close">×</button>
+            <div class="success-flower">✽</div>
+            <p class="eyebrow">Đã nhận đơn · chờ kiểm tra thanh toán</p>
+            <h2 id="success-title">Cảm ơn bạn vì<br><i>đơn hàng này!</i></h2>
+            <p id="order-success-copy">Cảm ơn bạn đã đặt mầm! Shop sẽ kiểm tra thanh toán và gửi file qua email trong vòng 1-12 tiếng.</p>
+            <p class="success-order-reference">Mã đơn của bạn: <strong id="success-order-reference"></strong></p>
+            <a id="success-track-order" class="button button-dark" href="track-order.html">Theo dõi tiến trình đơn <span>→</span></a>
+            <button
+                class="button button-dark" data-close-modal>Về shop <span>↗</span></button>
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/product.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
